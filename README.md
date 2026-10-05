@@ -147,9 +147,7 @@ Este repositório preserva a política de uso de IA do template da disciplina:
 | Amarelo - limitado | Ferramenta auxiliar com declaração de uso. |
 | Verde - permitido | Uso permitido conforme as orientações da atividade. |
 
-**Houve uso de IA:** sim, ChatGPT/Codex, para sugestões, elaboração inicial e revisão dos documentos, modelos e protótipos. O tema Agenda ao Ar Livre foi escolhido por Luca Romariz. A validação e a adoção das propostas cabem aos integrantes.
-
-**Revisão:** Luca solicitou a atualização dos dados acadêmicos e a remoção dos arquivos auxiliares de preparação. A dupla deve validar os requisitos, a modelagem e os demais artefatos antes da entrega, conforme as orientações do professor.
+**Houve uso de IA:** sim, ChatGPT/Codex, para sugestões/revisão dos documentos, modelos e protótipos. O tema Agenda ao Ar Livre foi escolhido por Luca Romariz. A validação e a adoção das propostas cabem aos integrantes.
 
 ## 12. Contribuição e fluxo de trabalho
 main guarda a versão para avaliação. Usar branches docs/nome, feat/nome e fix/nome. Cada integrante faz suas alterações com a própria conta e pede revisão ao colega. Exemplos: docs: revisa regras de inscrição; feat: adiciona cadastro de locais.
@@ -194,4 +192,4 @@ Licença de redistribuição ainda não definida pelo grupo; nenhuma licença fo
 - [Django](https://docs.djangoproject.com/) e [Django REST Framework](https://www.django-rest-framework.org/).
 - [OpenAPI 3.0.3](https://spec.openapis.org/oas/v3.0.3).
 
-Contato: usar as issues do repositório quando publicado. Nenhum endereço pessoal de contato foi incluído.
+
