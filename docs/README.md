@@ -1,6 +1,8 @@
 # Índice da documentação
 Agenda ao Ar Livre | Entrega 1 | Luca Romariz e Miguel Silva
 
+Repositório: https://github.com/lucaRomariz/agenda-ao-ar-livre
+
 ## Leitura sugerida
 1. Documento de Visão: visao/visao.md e visao/visao.pdf.
 2. Casos de uso: modelagem/casos-de-uso/especificacoes-casos-de-uso.md e PDF de mesmo nome.
@@ -14,7 +16,7 @@ Agenda ao Ar Livre | Entrega 1 | Luca Romariz e Miguel Silva
 Diagramas UML/ER possuem arquivos .drawio editáveis e .svg exportados ao lado de seus PDFs. A fonte das tabelas também está em modelo.json, com esquema.sql ilustrativo. Os arquivos PDF institucionais foram preenchidos nos mesmos caminhos do template.
 
 ## Situação real
-Material de fase 1 preparado com auxílio de IA, sujeito à revisão da dupla. CEUB, ADS, turma A; prazo informado: 05/10/2026 às 08h (horário de Brasília). Backend, hospedagem, testes funcionais e SAST/DAST pertencem à fase 2 e ainda não estão implementados. Revisão da dupla, evidências individuais de contribuição e publicação no GitHub permanecem pendentes.
+Material de fase 1 preparado com auxílio de IA, sujeito à revisão da dupla. CEUB, ADS, turma A; prazo informado: 05/10/2026 às 08h (horário de Brasília). Backend, hospedagem, testes funcionais e SAST/DAST pertencem à fase 2 e ainda não estão implementados. Repositório publicado no endereço acima; conferir a revisão da dupla, as contribuições individuais e a versão final enviada antes da submissão.
 
 ## Pacote consolidado
 entrega-1.pdf reúne os documentos em ordem de leitura. Os arquivos separados e editáveis permanecem disponíveis no repositório.

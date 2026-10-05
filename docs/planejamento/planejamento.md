@@ -82,7 +82,7 @@ Usar tarefas pequenas, branches docs/ ou feat/, revisão do outro integrante e i
 
 ## Pendências para submissão da fase 1
 - Instituição, curso, turma e prazo da Entrega 1 preenchidos. Informar matrículas apenas se exigidas e confirmar o prazo da fase 2.
-- Criar repositório GitHub usando o template e adicionar contas corretas da dupla.
+- Repositório publicado: https://github.com/lucaRomariz/agenda-ao-ar-livre. Conferir os colaboradores da dupla.
 - Cada integrante revisar e contribuir com sua conta; este pacote não fabrica autoria individual.
 - Verificar acesso do professor e revisar atribuições propostas.
-- Registrar URL e hash/tag após publicar; não preencher com o hash do template.
+- URL registrada acima; registrar o hash/tag final após enviar a revisão documental.
