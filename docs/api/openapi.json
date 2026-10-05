@@ -1,0 +1,974 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Agenda ao Ar Livre - API pública",
+    "version": "0.1.0",
+    "description": "Contrato inicial da fase 1. Endpoints ainda não implementados. Exemplos fictícios. Limite proposto 60/min por IP. Apenas leitura pública; autenticação de sessão é da interface web."
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8000/api/v1",
+      "description": "Endereço previsto para desenvolvimento na fase 2"
+    }
+  ],
+  "paths": {
+    "/atividades/": {
+      "get": {
+        "operationId": "listarAtividades",
+        "summary": "Consultar catálogo público",
+        "description": "Filtros por AND; ordem inicio,id. Parâmetros desconhecidos causam 400. Eventos passados incluídos se não houver filtro.",
+        "parameters": [
+          {
+            "name": "q",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "maxLength": 120
+            },
+            "description": "Busca em título e descrição."
+          },
+          {
+            "name": "cidade",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "maxLength": 120
+            },
+            "description": "Cidade sem diferenciar maiúsculas."
+          },
+          {
+            "name": "categoria",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int64",
+              "minimum": 1
+            },
+            "description": "ID da categoria."
+          },
+          {
+            "name": "data_inicio",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Limite inicial inclusivo da data de início no fuso America/Sao_Paulo."
+          },
+          {
+            "name": "data_fim",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date"
+            },
+            "description": "Limite final inclusivo; deve ser >= data_inicio."
+          },
+          {
+            "name": "situacao",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "publicada",
+                "cancelada"
+              ]
+            },
+            "description": "Sem filtro: ambas as situações públicas."
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "default": 1
+            },
+            "description": "Página fora do intervalo retorna 404."
+          },
+          {
+            "name": "page_size",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 100,
+              "default": 20
+            },
+            "description": "Quantidade de itens por página."
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Consulta concluída",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PaginaAtividades"
+                },
+                "example": {
+                  "count": 1,
+                  "next": null,
+                  "previous": null,
+                  "results": [
+                    {
+                      "id": 1,
+                      "titulo": "Caminhada no parque",
+                      "descricao": "Encontro gratuito para caminhada leve.",
+                      "inicio": "2026-10-10T08:00:00-03:00",
+                      "termino": "2026-10-10T10:00:00-03:00",
+                      "capacidade": 20,
+                      "vagas": 8,
+                      "situacao": "publicada",
+                      "encerrada": false,
+                      "motivo_cancelamento": "",
+                      "categoria": {
+                        "id": 1,
+                        "nome": "Caminhada"
+                      },
+                      "local": {
+                        "id": 1,
+                        "nome": "Parque Ibirapuera",
+                        "endereco": "Av. Pedro Álvares Cabral, portão de encontro a confirmar",
+                        "cidade": "São Paulo",
+                        "uf": "SP",
+                        "latitude": -23.5874,
+                        "longitude": -46.6576
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Parâmetros inválidos",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Erro"
+                },
+                "example": {
+                  "erro": {
+                    "codigo": "parametros_invalidos",
+                    "mensagem": "Parâmetros inválidos",
+                    "campos": {}
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Recurso ou página não encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Erro"
+                },
+                "example": {
+                  "erro": {
+                    "codigo": "nao_encontrado",
+                    "mensagem": "Recurso ou página não encontrado",
+                    "campos": {}
+                  }
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Método não permitido",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Erro"
+                },
+                "example": {
+                  "erro": {
+                    "codigo": "metodo_nao_permitido",
+                    "mensagem": "Método não permitido",
+                    "campos": {}
+                  }
+                }
+              }
+            },
+            "headers": {
+              "Allow": {
+                "schema": {
+                  "type": "string",
+                  "example": "GET, HEAD, OPTIONS"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Limite excedido",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Erro"
+                },
+                "example": {
+                  "erro": {
+                    "codigo": "limite_excedido",
+                    "mensagem": "Limite excedido",
+                    "campos": {}
+                  }
+                }
+              }
+            },
+            "headers": {
+              "Retry-After": {
+                "description": "Segundos até nova tentativa.",
+                "schema": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Erro"
+                },
+                "example": {
+                  "erro": {
+                    "codigo": "erro_interno",
+                    "mensagem": "Erro interno",
+                    "campos": {}
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/atividades/{id}/": {
+      "get": {
+        "operationId": "obterAtividade",
+        "summary": "Obter detalhe público",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64",
+              "minimum": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Consulta concluída",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Atividade"
+                },
+                "example": {
+                  "id": 1,
+                  "titulo": "Caminhada no parque",
+                  "descricao": "Encontro gratuito para caminhada leve.",
+                  "inicio": "2026-10-10T08:00:00-03:00",
+                  "termino": "2026-10-10T10:00:00-03:00",
+                  "capacidade": 20,
+                  "vagas": 8,
+                  "situacao": "publicada",
+                  "encerrada": false,
+                  "motivo_cancelamento": "",
+                  "categoria": {
+                    "id": 1,
+                    "nome": "Caminhada"
+                  },
+                  "local": {
+                    "id": 1,
+                    "nome": "Parque Ibirapuera",
+                    "endereco": "Av. Pedro Álvares Cabral, portão de encontro a confirmar",
+                    "cidade": "São Paulo",
+                    "uf": "SP",
+                    "latitude": -23.5874,
+                    "longitude": -46.6576
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Parâmetros inválidos",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Erro"
+                },
+                "example": {
+                  "erro": {
+                    "codigo": "parametros_invalidos",
+                    "mensagem": "Parâmetros inválidos",
+                    "campos": {}
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Recurso ou página não encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Erro"
+                },
+                "example": {
+                  "erro": {
+                    "codigo": "nao_encontrado",
+                    "mensagem": "Recurso ou página não encontrado",
+                    "campos": {}
+                  }
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Método não permitido",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Erro"
+                },
+                "example": {
+                  "erro": {
+                    "codigo": "metodo_nao_permitido",
+                    "mensagem": "Método não permitido",
+                    "campos": {}
+                  }
+                }
+              }
+            },
+            "headers": {
+              "Allow": {
+                "schema": {
+                  "type": "string",
+                  "example": "GET, HEAD, OPTIONS"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Limite excedido",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Erro"
+                },
+                "example": {
+                  "erro": {
+                    "codigo": "limite_excedido",
+                    "mensagem": "Limite excedido",
+                    "campos": {}
+                  }
+                }
+              }
+            },
+            "headers": {
+              "Retry-After": {
+                "description": "Segundos até nova tentativa.",
+                "schema": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Erro"
+                },
+                "example": {
+                  "erro": {
+                    "codigo": "erro_interno",
+                    "mensagem": "Erro interno",
+                    "campos": {}
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/atividades/{id}/previsao/": {
+      "get": {
+        "operationId": "obterPrevisao",
+        "summary": "Consultar resumo meteorológico diário",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64",
+              "minimum": 1
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Consulta concluída",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Previsao"
+                },
+                "example": {
+                  "atividade_id": 1,
+                  "data": "2026-10-10",
+                  "estado": "disponivel",
+                  "min_c": 17,
+                  "max_c": 26,
+                  "probabilidade_chuva_pct": 30,
+                  "codigo_wmo": 2,
+                  "descricao": "Parcialmente nublado",
+                  "consultado_em": "2026-10-04T14:00:00-03:00",
+                  "fonte": "Open-Meteo",
+                  "url_fonte": "https://open-meteo.com/",
+                  "mensagem": "Resumo do dia inteiro; não representa apenas o horário da atividade."
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Parâmetros inválidos",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Erro"
+                },
+                "example": {
+                  "erro": {
+                    "codigo": "parametros_invalidos",
+                    "mensagem": "Parâmetros inválidos",
+                    "campos": {}
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Recurso ou página não encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Erro"
+                },
+                "example": {
+                  "erro": {
+                    "codigo": "nao_encontrado",
+                    "mensagem": "Recurso ou página não encontrado",
+                    "campos": {}
+                  }
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Método não permitido",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Erro"
+                },
+                "example": {
+                  "erro": {
+                    "codigo": "metodo_nao_permitido",
+                    "mensagem": "Método não permitido",
+                    "campos": {}
+                  }
+                }
+              }
+            },
+            "headers": {
+              "Allow": {
+                "schema": {
+                  "type": "string",
+                  "example": "GET, HEAD, OPTIONS"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Limite excedido",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Erro"
+                },
+                "example": {
+                  "erro": {
+                    "codigo": "limite_excedido",
+                    "mensagem": "Limite excedido",
+                    "campos": {}
+                  }
+                }
+              }
+            },
+            "headers": {
+              "Retry-After": {
+                "description": "Segundos até nova tentativa.",
+                "schema": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Erro"
+                },
+                "example": {
+                  "erro": {
+                    "codigo": "erro_interno",
+                    "mensagem": "Erro interno",
+                    "campos": {}
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    },
+    "/categorias/": {
+      "get": {
+        "operationId": "listarCategorias",
+        "summary": "Listar categorias ordenadas por nome",
+        "responses": {
+          "200": {
+            "description": "Consulta concluída",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Categoria"
+                  }
+                },
+                "example": [
+                  {
+                    "id": 1,
+                    "nome": "Caminhada"
+                  }
+                ]
+              }
+            }
+          },
+          "400": {
+            "description": "Parâmetros inválidos",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Erro"
+                },
+                "example": {
+                  "erro": {
+                    "codigo": "parametros_invalidos",
+                    "mensagem": "Parâmetros inválidos",
+                    "campos": {}
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Recurso ou página não encontrado",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Erro"
+                },
+                "example": {
+                  "erro": {
+                    "codigo": "nao_encontrado",
+                    "mensagem": "Recurso ou página não encontrado",
+                    "campos": {}
+                  }
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Método não permitido",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Erro"
+                },
+                "example": {
+                  "erro": {
+                    "codigo": "metodo_nao_permitido",
+                    "mensagem": "Método não permitido",
+                    "campos": {}
+                  }
+                }
+              }
+            },
+            "headers": {
+              "Allow": {
+                "schema": {
+                  "type": "string",
+                  "example": "GET, HEAD, OPTIONS"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Limite excedido",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Erro"
+                },
+                "example": {
+                  "erro": {
+                    "codigo": "limite_excedido",
+                    "mensagem": "Limite excedido",
+                    "campos": {}
+                  }
+                }
+              }
+            },
+            "headers": {
+              "Retry-After": {
+                "description": "Segundos até nova tentativa.",
+                "schema": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Erro interno",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Erro"
+                },
+                "example": {
+                  "erro": {
+                    "codigo": "erro_interno",
+                    "mensagem": "Erro interno",
+                    "campos": {}
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": []
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Categoria": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "nome"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "minimum": 1
+          },
+          "nome": {
+            "type": "string",
+            "maxLength": 60
+          }
+        }
+      },
+      "LocalPublico": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "nome",
+          "endereco",
+          "cidade",
+          "uf",
+          "latitude",
+          "longitude"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "minimum": 1
+          },
+          "nome": {
+            "type": "string"
+          },
+          "endereco": {
+            "type": "string"
+          },
+          "cidade": {
+            "type": "string"
+          },
+          "uf": {
+            "type": "string",
+            "minLength": 2,
+            "maxLength": 2
+          },
+          "latitude": {
+            "type": "number",
+            "minimum": -90,
+            "maximum": 90
+          },
+          "longitude": {
+            "type": "number",
+            "minimum": -180,
+            "maximum": 180
+          }
+        }
+      },
+      "Atividade": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "titulo",
+          "descricao",
+          "inicio",
+          "termino",
+          "capacidade",
+          "vagas",
+          "situacao",
+          "encerrada",
+          "motivo_cancelamento",
+          "categoria",
+          "local"
+        ],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int64",
+            "minimum": 1
+          },
+          "titulo": {
+            "type": "string",
+            "maxLength": 120
+          },
+          "descricao": {
+            "type": "string"
+          },
+          "inicio": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "termino": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "capacidade": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 500
+          },
+          "vagas": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 500
+          },
+          "situacao": {
+            "type": "string",
+            "enum": [
+              "publicada",
+              "cancelada"
+            ]
+          },
+          "encerrada": {
+            "type": "boolean"
+          },
+          "motivo_cancelamento": {
+            "type": "string"
+          },
+          "categoria": {
+            "$ref": "#/components/schemas/Categoria"
+          },
+          "local": {
+            "$ref": "#/components/schemas/LocalPublico"
+          }
+        }
+      },
+      "Previsao": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "atividade_id",
+          "data",
+          "estado",
+          "min_c",
+          "max_c",
+          "probabilidade_chuva_pct",
+          "codigo_wmo",
+          "descricao",
+          "consultado_em",
+          "fonte",
+          "url_fonte",
+          "mensagem"
+        ],
+        "properties": {
+          "atividade_id": {
+            "type": "integer",
+            "format": "int64",
+            "minimum": 1
+          },
+          "data": {
+            "type": "string",
+            "format": "date"
+          },
+          "estado": {
+            "type": "string",
+            "enum": [
+              "disponivel",
+              "indisponivel",
+              "fora_do_horizonte"
+            ]
+          },
+          "min_c": {
+            "type": "number",
+            "nullable": true
+          },
+          "max_c": {
+            "type": "number",
+            "nullable": true
+          },
+          "probabilidade_chuva_pct": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 100,
+            "nullable": true
+          },
+          "codigo_wmo": {
+            "type": "integer",
+            "nullable": true
+          },
+          "descricao": {
+            "type": "string",
+            "nullable": true
+          },
+          "consultado_em": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "fonte": {
+            "type": "string",
+            "enum": [
+              "Open-Meteo"
+            ]
+          },
+          "url_fonte": {
+            "type": "string",
+            "format": "uri"
+          },
+          "mensagem": {
+            "type": "string"
+          }
+        },
+        "description": "Nos estados indisponivel/fora_do_horizonte, valores meteorológicos e consultado_em são nulos. Disponivel exige valores não nulos. Resumo diário, não do horário do evento."
+      },
+      "Erro": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "erro"
+        ],
+        "properties": {
+          "erro": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "codigo",
+              "mensagem",
+              "campos"
+            ],
+            "properties": {
+              "codigo": {
+                "type": "string",
+                "enum": [
+                  "parametros_invalidos",
+                  "nao_encontrado",
+                  "metodo_nao_permitido",
+                  "limite_excedido",
+                  "erro_interno"
+                ]
+              },
+              "mensagem": {
+                "type": "string"
+              },
+              "campos": {
+                "type": "object",
+                "additionalProperties": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "PaginaAtividades": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "count",
+          "next",
+          "previous",
+          "results"
+        ],
+        "properties": {
+          "count": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "next": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "previous": {
+            "type": "string",
+            "format": "uri",
+            "nullable": true
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Atividade"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="1120" viewBox="0 0 1400 1120">
+<title>Diagrama UML de casos de uso</title>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="35" y="38" font-family="Arial,sans-serif" font-size="26" font-weight="bold" fill="#174C3C">Diagrama UML de casos de uso</text>
+<polyline points="160,165 200,165 200,166 280,166" fill="none" stroke="#52615A" stroke-width="2"/>
+<polyline points="160,185 200,185 200,311 280,311" fill="none" stroke="#52615A" stroke-width="2"/>
+<polyline points="180,620 210,620 210,501 280,501" fill="none" stroke="#52615A" stroke-width="2"/>
+<polyline points="180,640 210,640 210,651 280,651" fill="none" stroke="#52615A" stroke-width="2"/>
+<polyline points="180,660 210,660 210,801 280,801" fill="none" stroke="#52615A" stroke-width="2"/>
+<polyline points="1230,620 1197,620 1197,401 1120,401" fill="none" stroke="#52615A" stroke-width="2"/>
+<polyline points="1230,640 1197,640 1197,536 1120,536" fill="none" stroke="#52615A" stroke-width="2"/>
+<polyline points="1230,660 1197,660 1197,731 1120,731" fill="none" stroke="#52615A" stroke-width="2"/>
+<polyline points="1230,680 1197,680 1197,906 1120,906" fill="none" stroke="#52615A" stroke-width="2"/>
+<polyline points="185,965 280,981" fill="none" stroke="#52615A" stroke-width="2"/>
+<polyline points="1230,210 1120,211" fill="none" stroke="#52615A" stroke-width="2"/>
+<polyline points="595,311 695,311 695,211 805,211" fill="none" stroke="#52615A" stroke-width="2" stroke-dasharray="8 5"/>
+<polyline points="794.1946347717678,216.21958640933477 805,211 794.1946347717678,205.78041359066523" fill="none" stroke="#52615A" stroke-width="2"/>
+<text x="695.0" y="283.0" font-family="Arial,sans-serif" font-size="15" font-weight="normal" text-anchor="middle" fill="#20312B">&lt;&lt;include&gt;&gt;</text>
+<rect x="225" y="70" width="950" height="990" fill="none" stroke="#174C3C" stroke-width="2"/>
+<text x="240" y="96" font-family="Arial,sans-serif" font-size="18" font-weight="bold" text-anchor="start" fill="#20312B">Agenda ao Ar Livre</text>
+<circle cx="95.0" cy="138" r="15" fill="white" stroke="#174C3C" stroke-width="2"/>
+<path d="M 95.0 153 V 193 M 67.0 167 H 123.0 M 95.0 193 L 70.0 223 M 95.0 193 L 120.0 223" fill="none" stroke="#174C3C" stroke-width="2"/>
+<text x="95.0" y="250" font-family="Arial,sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#20312B">Visitante</text>
+<circle cx="105.0" cy="598" r="15" fill="white" stroke="#174C3C" stroke-width="2"/>
+<path d="M 105.0 613 V 653 M 77.0 627 H 133.0 M 105.0 653 L 80.0 683 M 105.0 653 L 130.0 683" fill="none" stroke="#174C3C" stroke-width="2"/>
+<text x="105.0" y="710" font-family="Arial,sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#20312B">Participante</text>
+<circle cx="1305.0" cy="618" r="15" fill="white" stroke="#174C3C" stroke-width="2"/>
+<path d="M 1305.0 633 V 673 M 1277.0 647 H 1333.0 M 1305.0 673 L 1280.0 703 M 1305.0 673 L 1330.0 703" fill="none" stroke="#174C3C" stroke-width="2"/>
+<text x="1305.0" y="730" font-family="Arial,sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#20312B">Organizador</text>
+<circle cx="1305.0" cy="183" r="15" fill="white" stroke="#174C3C" stroke-width="2"/>
+<path d="M 1305.0 198 V 238 M 1277.0 212 H 1333.0 M 1305.0 238 L 1280.0 268 M 1305.0 238 L 1330.0 268" fill="none" stroke="#174C3C" stroke-width="2"/>
+<text x="1305.0" y="295" font-family="Arial,sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#20312B">Open-Meteo</text>
+<circle cx="105.0" cy="908" r="15" fill="white" stroke="#174C3C" stroke-width="2"/>
+<path d="M 105.0 923 V 963 M 77.0 937 H 133.0 M 105.0 963 L 80.0 993 M 105.0 963 L 130.0 993" fill="none" stroke="#174C3C" stroke-width="2"/>
+<text x="105.0" y="1020" font-family="Arial,sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="#20312B">Cliente de API</text>
+<ellipse cx="437.5" cy="166.0" rx="157.5" ry="41.0" fill="#E8F1E9" stroke="#174C3C" stroke-width="2"/>
+<text x="437.5" y="161.0" font-family="Arial,sans-serif" font-size="18" font-weight="normal" text-anchor="middle" fill="#20312B">UC01</text>
+<text x="437.5" y="184.0" font-family="Arial,sans-serif" font-size="18" font-weight="normal" text-anchor="middle" fill="#20312B">Criar conta / entrar</text>
+<ellipse cx="437.5" cy="311.0" rx="157.5" ry="41.0" fill="#E8F1E9" stroke="#174C3C" stroke-width="2"/>
+<text x="437.5" y="306.0" font-family="Arial,sans-serif" font-size="18" font-weight="normal" text-anchor="middle" fill="#20312B">UC02</text>
+<text x="437.5" y="329.0" font-family="Arial,sans-serif" font-size="18" font-weight="normal" text-anchor="middle" fill="#20312B">Pesquisar e consultar</text>
+<ellipse cx="962.5" cy="211.0" rx="157.5" ry="41.0" fill="#E8F1E9" stroke="#174C3C" stroke-width="2"/>
+<text x="962.5" y="206.0" font-family="Arial,sans-serif" font-size="18" font-weight="normal" text-anchor="middle" fill="#20312B">UC03</text>
+<text x="962.5" y="229.0" font-family="Arial,sans-serif" font-size="18" font-weight="normal" text-anchor="middle" fill="#20312B">Consultar previsão</text>
+<ellipse cx="962.5" cy="401.0" rx="157.5" ry="41.0" fill="#E8F1E9" stroke="#174C3C" stroke-width="2"/>
+<text x="962.5" y="396.0" font-family="Arial,sans-serif" font-size="18" font-weight="normal" text-anchor="middle" fill="#20312B">UC04</text>
+<text x="962.5" y="419.0" font-family="Arial,sans-serif" font-size="18" font-weight="normal" text-anchor="middle" fill="#20312B">Manter locais</text>
+<ellipse cx="962.5" cy="536.0" rx="157.5" ry="41.0" fill="#E8F1E9" stroke="#174C3C" stroke-width="2"/>
+<text x="962.5" y="531.0" font-family="Arial,sans-serif" font-size="18" font-weight="normal" text-anchor="middle" fill="#20312B">UC05</text>
+<text x="962.5" y="554.0" font-family="Arial,sans-serif" font-size="18" font-weight="normal" text-anchor="middle" fill="#20312B">Manter atividades</text>
+<ellipse cx="437.5" cy="501.0" rx="157.5" ry="41.0" fill="#E8F1E9" stroke="#174C3C" stroke-width="2"/>
+<text x="437.5" y="496.0" font-family="Arial,sans-serif" font-size="18" font-weight="normal" text-anchor="middle" fill="#20312B">UC06</text>
+<text x="437.5" y="519.0" font-family="Arial,sans-serif" font-size="18" font-weight="normal" text-anchor="middle" fill="#20312B">Inscrever-se</text>
+<ellipse cx="437.5" cy="651.0" rx="157.5" ry="41.0" fill="#E8F1E9" stroke="#174C3C" stroke-width="2"/>
+<text x="437.5" y="646.0" font-family="Arial,sans-serif" font-size="18" font-weight="normal" text-anchor="middle" fill="#20312B">UC07</text>
+<text x="437.5" y="669.0" font-family="Arial,sans-serif" font-size="18" font-weight="normal" text-anchor="middle" fill="#20312B">Minhas inscrições</text>
+<ellipse cx="437.5" cy="801.0" rx="157.5" ry="41.0" fill="#E8F1E9" stroke="#174C3C" stroke-width="2"/>
+<text x="437.5" y="796.0" font-family="Arial,sans-serif" font-size="18" font-weight="normal" text-anchor="middle" fill="#20312B">UC08</text>
+<text x="437.5" y="819.0" font-family="Arial,sans-serif" font-size="18" font-weight="normal" text-anchor="middle" fill="#20312B">Cancelar inscrição</text>
+<ellipse cx="962.5" cy="731.0" rx="157.5" ry="41.0" fill="#E8F1E9" stroke="#174C3C" stroke-width="2"/>
+<text x="962.5" y="726.0" font-family="Arial,sans-serif" font-size="18" font-weight="normal" text-anchor="middle" fill="#20312B">UC09</text>
+<text x="962.5" y="749.0" font-family="Arial,sans-serif" font-size="18" font-weight="normal" text-anchor="middle" fill="#20312B">Cancelar atividade</text>
+<ellipse cx="962.5" cy="906.0" rx="157.5" ry="41.0" fill="#E8F1E9" stroke="#174C3C" stroke-width="2"/>
+<text x="962.5" y="901.0" font-family="Arial,sans-serif" font-size="18" font-weight="normal" text-anchor="middle" fill="#20312B">UC10</text>
+<text x="962.5" y="924.0" font-family="Arial,sans-serif" font-size="18" font-weight="normal" text-anchor="middle" fill="#20312B">Gerar relatório</text>
+<ellipse cx="437.5" cy="981.0" rx="157.5" ry="41.0" fill="#E8F1E9" stroke="#174C3C" stroke-width="2"/>
+<text x="437.5" y="976.0" font-family="Arial,sans-serif" font-size="18" font-weight="normal" text-anchor="middle" fill="#20312B">UC11</text>
+<text x="437.5" y="999.0" font-family="Arial,sans-serif" font-size="18" font-weight="normal" text-anchor="middle" fill="#20312B">Consultar API pública</text>
+<text x="35" y="1100" font-family="Arial,sans-serif" font-size="15" fill="#52615A">Agenda ao Ar Livre • Fase 1 • Luca Romariz e Miguel Silva • Fonte editável: diagrams.net</text></svg>

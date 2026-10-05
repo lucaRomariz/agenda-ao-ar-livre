@@ -1,0 +1,16 @@
+ID,Tarefa,Responsável proposto,Marco,Situação
+B01,Revisar visão e requisitos,Luca Romariz,M1,Material preparado; revisão pendente
+B02,Revisar casos de uso,Miguel Silva,M1,Material preparado; revisão pendente
+B03,Revisar dados e arquitetura,Luca Romariz,M1,Material preparado; revisão pendente
+B04,Revisar protótipos,Miguel Silva,M1,Material preparado; revisão pendente
+B05,Revisar APIs e plano,Ambos,M1,Material preparado; revisão pendente
+B06,Publicar GitHub e revisar entrega,Ambos,M1,Pendente
+B07,"Django, autenticação e banco",Luca Romariz,M2,Planejado
+B08,Locais e atividades,Miguel Silva,M3,Planejado
+B09,Inscrições e concorrência,Luca Romariz,M3,Planejado
+B10,API e meteorologia,Luca Romariz,M4,Planejado
+B11,Relatório e responsividade,Miguel Silva,M4,Planejado
+B12,Deploy e testes,Ambos,M5,Planejado
+B13,SAST e correções,Luca Romariz,M5,Planejado
+B14,DAST e correções,Miguel Silva,M5,Planejado
+B15,Apresentação,Ambos,M6,Planejado

@@ -1,0 +1,13 @@
+# Segredos e ambientes
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.sqlite3
+.DS_Store
+# Artefatos locais
+.tmp/
+*.log

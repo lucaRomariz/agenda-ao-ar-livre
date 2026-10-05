@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="890" viewBox="0 0 1400 890">
+<title>Arquitetura UML de componentes</title>
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="35" y="38" font-family="Arial,sans-serif" font-size="26" font-weight="bold" fill="#174C3C">Arquitetura UML de componentes</text>
+<polyline points="355,195 460,195" fill="none" stroke="#52615A" stroke-width="2"/>
+<polyline points="449.1946347717679,200.21958640933477 460,195 449.1946347717679,189.78041359066523" fill="none" stroke="#52615A" stroke-width="2"/>
+<text x="407.5" y="217.0" font-family="Arial,sans-serif" font-size="15" font-weight="normal" text-anchor="middle" fill="#20312B">HTTPS</text>
+<polyline points="355,425 460,425" fill="none" stroke="#52615A" stroke-width="2"/>
+<polyline points="449.1946347717679,430.21958640933474 460,425 449.1946347717679,419.78041359066526" fill="none" stroke="#52615A" stroke-width="2"/>
+<text x="407.5" y="447.0" font-family="Arial,sans-serif" font-size="15" font-weight="normal" text-anchor="middle" fill="#20312B">JSON</text>
+<polyline points="810,205 940,205" fill="none" stroke="#52615A" stroke-width="2"/>
+<polyline points="929.1946347717678,210.21958640933477 940,205 929.1946347717678,199.78041359066523" fill="none" stroke="#52615A" stroke-width="2"/>
+<polyline points="810,420 870,420 870,260 940,260" fill="none" stroke="#52615A" stroke-width="2"/>
+<polyline points="929.1946347717678,265.21958640933474 940,260 929.1946347717678,254.78041359066523" fill="none" stroke="#52615A" stroke-width="2"/>
+<polyline points="1135,290 1135,380" fill="none" stroke="#52615A" stroke-width="2"/>
+<polyline points="1129.7804135906651,369.1946347717679 1135,380 1140.2195864093349,369.1946347717679" fill="none" stroke="#52615A" stroke-width="2"/>
+<text x="1135.0" y="357.0" font-family="Arial,sans-serif" font-size="15" font-weight="normal" text-anchor="middle" fill="#20312B">ORM</text>
+<polyline points="460,245 395,245 395,710 460,710" fill="none" stroke="#52615A" stroke-width="2"/>
+<polyline points="449.1946347717679,715.2195864093347 460,710 449.1946347717679,704.7804135906653" fill="none" stroke="#52615A" stroke-width="2"/>
+<polyline points="650,510 650,655" fill="none" stroke="#52615A" stroke-width="2"/>
+<polyline points="644.7804135906653,644.1946347717678 650,655 655.2195864093347,644.1946347717678" fill="none" stroke="#52615A" stroke-width="2"/>
+<polyline points="810,725 950,725" fill="none" stroke="#52615A" stroke-width="2"/>
+<polyline points="939.1946347717678,730.2195864093347 950,725 939.1946347717678,719.7804135906653" fill="none" stroke="#52615A" stroke-width="2"/>
+<text x="880.0" y="747.0" font-family="Arial,sans-serif" font-size="15" font-weight="normal" text-anchor="middle" fill="#20312B">HTTPS</text>
+<polyline points="810,775 880,775 880,490 950,490" fill="none" stroke="#52615A" stroke-width="2"/>
+<polyline points="939.1946347717678,495.21958640933474 950,490 939.1946347717678,484.78041359066526" fill="none" stroke="#52615A" stroke-width="2"/>
+<text x="880.0" y="654.5" font-family="Arial,sans-serif" font-size="15" font-weight="normal" text-anchor="middle" fill="#20312B">Cache de banco</text>
+<rect x="45" y="130" width="310" height="130" rx="4" fill="white" stroke="#174C3C" stroke-width="2"/>
+<rect x="46" y="131" width="308" height="45" fill="#E8F1E9"/>
+<text x="59" y="160" font-family="Arial,sans-serif" font-size="20" font-weight="bold" text-anchor="start" fill="#20312B">&lt;&lt;component&gt;&gt; Navegador</text>
+<text x="59" y="202" font-family="Arial,sans-serif" font-size="17" font-weight="normal" text-anchor="start" fill="#20312B">HTML / CSS / formulários</text>
+<rect x="460" y="130" width="350" height="150" rx="4" fill="white" stroke="#174C3C" stroke-width="2"/>
+<rect x="461" y="131" width="348" height="45" fill="#E8F1E9"/>
+<text x="474" y="160" font-family="Arial,sans-serif" font-size="20" font-weight="bold" text-anchor="start" fill="#20312B">&lt;&lt;component&gt;&gt; Web Django</text>
+<text x="474" y="202" font-family="Arial,sans-serif" font-size="17" font-weight="normal" text-anchor="start" fill="#20312B">Views + templates + sessão</text>
+<text x="474" y="226" font-family="Arial,sans-serif" font-size="17" font-weight="normal" text-anchor="start" fill="#20312B">CSRF / forms / autorização</text>
+<rect x="460" y="360" width="350" height="150" rx="4" fill="white" stroke="#174C3C" stroke-width="2"/>
+<rect x="461" y="361" width="348" height="45" fill="#E8F1E9"/>
+<text x="474" y="390" font-family="Arial,sans-serif" font-size="20" font-weight="bold" text-anchor="start" fill="#20312B">&lt;&lt;component&gt;&gt; API DRF</text>
+<text x="474" y="432" font-family="Arial,sans-serif" font-size="17" font-weight="normal" text-anchor="start" fill="#20312B">GET /api/v1/</text>
+<text x="474" y="456" font-family="Arial,sans-serif" font-size="17" font-weight="normal" text-anchor="start" fill="#20312B">Serializers / filtros / throttle</text>
+<rect x="45" y="370" width="310" height="120" rx="4" fill="white" stroke="#174C3C" stroke-width="2"/>
+<rect x="46" y="371" width="308" height="45" fill="#E8F1E9"/>
+<text x="59" y="400" font-family="Arial,sans-serif" font-size="20" font-weight="bold" text-anchor="start" fill="#20312B">&lt;&lt;component&gt;&gt; Cliente API</text>
+<text x="59" y="442" font-family="Arial,sans-serif" font-size="17" font-weight="normal" text-anchor="start" fill="#20312B">Terceiros / HTTP JSON</text>
+<rect x="940" y="130" width="390" height="160" rx="4" fill="white" stroke="#174C3C" stroke-width="2"/>
+<rect x="941" y="131" width="388" height="45" fill="#E8F1E9"/>
+<text x="954" y="160" font-family="Arial,sans-serif" font-size="20" font-weight="bold" text-anchor="start" fill="#20312B">&lt;&lt;component&gt;&gt; Domínio</text>
+<text x="954" y="202" font-family="Arial,sans-serif" font-size="17" font-weight="normal" text-anchor="start" fill="#20312B">Agenda / inscrições / relatório</text>
+<text x="954" y="226" font-family="Arial,sans-serif" font-size="17" font-weight="normal" text-anchor="start" fill="#20312B">Transações / regras / permissões</text>
+<rect x="950" y="380" width="370" height="130" rx="4" fill="white" stroke="#174C3C" stroke-width="2"/>
+<rect x="951" y="381" width="368" height="45" fill="#E8F1E9"/>
+<text x="964" y="410" font-family="Arial,sans-serif" font-size="20" font-weight="bold" text-anchor="start" fill="#20312B">&lt;&lt;component&gt;&gt; ORM</text>
+<text x="964" y="452" font-family="Arial,sans-serif" font-size="17" font-weight="normal" text-anchor="start" fill="#20312B">Models / migrations</text>
+<text x="964" y="476" font-family="Arial,sans-serif" font-size="17" font-weight="normal" text-anchor="start" fill="#20312B">PostgreSQL</text>
+<rect x="460" y="655" width="350" height="145" rx="4" fill="white" stroke="#174C3C" stroke-width="2"/>
+<rect x="461" y="656" width="348" height="45" fill="#E8F1E9"/>
+<text x="474" y="685" font-family="Arial,sans-serif" font-size="20" font-weight="bold" text-anchor="start" fill="#20312B">&lt;&lt;component&gt;&gt; Meteorologia</text>
+<text x="474" y="727" font-family="Arial,sans-serif" font-size="17" font-weight="normal" text-anchor="start" fill="#20312B">Validação / timeout / cache</text>
+<text x="474" y="751" font-family="Arial,sans-serif" font-size="17" font-weight="normal" text-anchor="start" fill="#20312B">Cliente HTTPS</text>
+<rect x="950" y="660" width="370" height="120" rx="4" fill="white" stroke="#174C3C" stroke-width="2"/>
+<rect x="951" y="661" width="368" height="45" fill="#E8F1E9"/>
+<text x="964" y="690" font-family="Arial,sans-serif" font-size="20" font-weight="bold" text-anchor="start" fill="#20312B">&lt;&lt;external&gt;&gt; Open-Meteo</text>
+<text x="964" y="732" font-family="Arial,sans-serif" font-size="17" font-weight="normal" text-anchor="start" fill="#20312B">Previsão diária / JSON</text>
+<text x="35" y="870" font-family="Arial,sans-serif" font-size="15" fill="#52615A">Agenda ao Ar Livre • Fase 1 • Luca Romariz e Miguel Silva • Fonte editável: diagrams.net</text></svg>

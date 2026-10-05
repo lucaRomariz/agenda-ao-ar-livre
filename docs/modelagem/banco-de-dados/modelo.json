@@ -1,0 +1,222 @@
+{
+  "Usuario": [
+    [
+      "id",
+      "bigint",
+      "PK; identity"
+    ],
+    [
+      "email",
+      "varchar(254)",
+      "UNIQUE; minúsculas; obrigatório"
+    ],
+    [
+      "nome",
+      "varchar(150)",
+      "obrigatório"
+    ],
+    [
+      "password",
+      "varchar(128)",
+      "hash Django; obrigatório"
+    ],
+    [
+      "is_active",
+      "boolean",
+      "default true"
+    ],
+    [
+      "is_staff",
+      "boolean",
+      "default false"
+    ],
+    [
+      "is_superuser",
+      "boolean",
+      "default false"
+    ],
+    [
+      "date_joined",
+      "timestamptz",
+      "obrigatório"
+    ],
+    [
+      "last_login",
+      "timestamptz",
+      "pode ser nulo"
+    ]
+  ],
+  "Local": [
+    [
+      "id",
+      "bigint",
+      "PK; identity"
+    ],
+    [
+      "proprietario_id",
+      "bigint",
+      "FK Usuario; PROTECT"
+    ],
+    [
+      "nome",
+      "varchar(120)",
+      "obrigatório"
+    ],
+    [
+      "endereco",
+      "varchar(255)",
+      "obrigatório"
+    ],
+    [
+      "cidade",
+      "varchar(120)",
+      "obrigatório"
+    ],
+    [
+      "uf",
+      "char(2)",
+      "UF brasileira válida"
+    ],
+    [
+      "latitude",
+      "numeric(9,6)",
+      "entre -90 e 90"
+    ],
+    [
+      "longitude",
+      "numeric(9,6)",
+      "entre -180 e 180"
+    ],
+    [
+      "criado_em",
+      "timestamptz",
+      "obrigatório"
+    ]
+  ],
+  "Categoria": [
+    [
+      "id",
+      "bigint",
+      "PK; identity"
+    ],
+    [
+      "nome",
+      "varchar(60)",
+      "UNIQUE; obrigatório"
+    ]
+  ],
+  "Atividade": [
+    [
+      "id",
+      "bigint",
+      "PK; identity"
+    ],
+    [
+      "organizador_id",
+      "bigint",
+      "FK Usuario; PROTECT"
+    ],
+    [
+      "local_id",
+      "bigint",
+      "FK Local; PROTECT"
+    ],
+    [
+      "categoria_id",
+      "bigint",
+      "FK Categoria; PROTECT"
+    ],
+    [
+      "titulo",
+      "varchar(120)",
+      "obrigatório"
+    ],
+    [
+      "descricao",
+      "text",
+      "10 a 5000 caracteres"
+    ],
+    [
+      "inicio",
+      "timestamptz",
+      "obrigatório"
+    ],
+    [
+      "termino",
+      "timestamptz",
+      "maior que inicio"
+    ],
+    [
+      "capacidade",
+      "integer",
+      "entre 1 e 500"
+    ],
+    [
+      "situacao",
+      "varchar(12)",
+      "rascunho/publicada/cancelada"
+    ],
+    [
+      "motivo_cancelamento",
+      "varchar(500)",
+      "vazio salvo se cancelada"
+    ],
+    [
+      "cancelada_em",
+      "timestamptz",
+      "nulo salvo se cancelada"
+    ],
+    [
+      "criado_em",
+      "timestamptz",
+      "obrigatório"
+    ],
+    [
+      "atualizado_em",
+      "timestamptz",
+      "obrigatório"
+    ]
+  ],
+  "Inscricao": [
+    [
+      "id",
+      "bigint",
+      "PK; identity"
+    ],
+    [
+      "usuario_id",
+      "bigint",
+      "FK Usuario; PROTECT"
+    ],
+    [
+      "atividade_id",
+      "bigint",
+      "FK Atividade; PROTECT"
+    ],
+    [
+      "situacao",
+      "varchar(12)",
+      "confirmada/cancelada"
+    ],
+    [
+      "motivo_cancelamento",
+      "varchar(20)",
+      "vazio/participante/atividade_cancelada"
+    ],
+    [
+      "criado_em",
+      "timestamptz",
+      "primeira inscrição"
+    ],
+    [
+      "atualizado_em",
+      "timestamptz",
+      "última mudança"
+    ],
+    [
+      "cancelada_em",
+      "timestamptz",
+      "nulo se confirmada"
+    ]
+  ]
+}
