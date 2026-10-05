@@ -3,7 +3,7 @@
 | Campo | Valor |
 | --- | --- |
 | Projeto | Agenda ao Ar Livre |
-| Integrantes | Luca Romariz (22504651) e Miguel Silva |
+| Integrantes | Luca Romariz (22504651) e Miguel Silva (22505782) |
 | Disciplina | Desenvolvimento Web |
 | Professor | Felippe Pires Ferreira |
 | Instituição / curso / turma | CEUB / Análise e Desenvolvimento de Sistemas (ADS) / A |

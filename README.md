@@ -99,7 +99,7 @@ A estrutura existente do template foi preservada, incluindo os caminhos dos quat
 | Nome | Matrícula | Responsabilidade proposta |
 | --- | --- | --- |
 | Luca Romariz | 22504651 | Backend, dados, API, integração e SAST; revisão conjunta. |
-| Miguel Silva | Não informada | Casos de uso, interface, relatório e DAST; revisão conjunta. |
+| Miguel Silva | 22505782 | Casos de uso, interface, relatório e DAST; revisão conjunta. |
 
 Divisão sujeita à confirmação da dupla; não representa evidência de execução individual. Professor responsável: Felippe Pires Ferreira.
 
@@ -159,8 +159,7 @@ Repositório do grupo: [Agenda ao Ar Livre](https://github.com/lucaRomariz/agend
 ## 13. Histórico de versões
 | Versão | Data | Descrição |
 | --- | --- | --- |
-| 0.1 - proposta | 2026-10-04 | Pacote de documentação e protótipos da fase 1; revisão humana e publicação pendentes. |
-| 0.1 - revisão documental | 2026-10-05 | Matrícula de Luca, declaração de assistência e remoção dos arquivos auxiliares de preparação. |
+| 1.0 — Entrega da parte documental | 2026-10-05 | Documentação, modelagem, planejamento e protótipos da Entrega 1. |
 
 ## 14. Limitações e próximos passos
 - Backend, persistência, integração real, deploy e segurança ainda não implementados.
@@ -170,7 +169,7 @@ Repositório do grupo: [Agenda ao Ar Livre](https://github.com/lucaRomariz/agend
 - Revisar pacote com ambos, publicar, gerar contribuições reais e registrar tag da entrega.
 
 ## 15. Licença, referências e contato
-Licença de redistribuição ainda não definida pelo grupo; nenhuma licença foi presumida para os materiais institucionais. Material preparado para avaliação acadêmica. Símbolo visual criado para este projeto com auxílio de IA; imagem semáforo preservada do template, de autoria externa.
+As contribuições originais do projeto estão disponíveis sob a [licença MIT](LICENSE). Materiais de terceiros, incluindo o template institucional e a imagem semáforo, permanecem sujeitos aos direitos e às condições de seus respectivos titulares e não estão abrangidos por essa licença. Material preparado para avaliação acadêmica. Símbolo visual criado para este projeto com auxílio de IA.
 
 ### Documentação complementar
 - [Índice em PDF](docs/README.pdf)
@@ -191,5 +190,3 @@ Licença de redistribuição ainda não definida pelo grupo; nenhuma licença fo
 - [Open-Meteo: documentação](https://open-meteo.com/en/docs) e [termos](https://open-meteo.com/en/terms), consultados em 04/10/2026.
 - [Django](https://docs.djangoproject.com/) e [Django REST Framework](https://www.django-rest-framework.org/).
 - [OpenAPI 3.0.3](https://spec.openapis.org/oas/v3.0.3).
-
-
