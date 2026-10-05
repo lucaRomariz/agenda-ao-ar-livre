@@ -3,12 +3,12 @@
 | Campo | Valor |
 | --- | --- |
 | Projeto | Agenda ao Ar Livre |
-| Integrantes | Luca Romariz e Miguel Silva |
+| Integrantes | Luca Romariz (22504651) e Miguel Silva |
 | Disciplina | Desenvolvimento Web |
 | Professor | Felippe Pires Ferreira |
 | Instituição / curso / turma | CEUB / Análise e Desenvolvimento de Sistemas (ADS) / A |
 | Prazo da Entrega 1 informado pelo grupo | 05/10/2026 às 08h (horário de Brasília) |
-| URL do repositório | Pendente: publicação manual pelo grupo |
+| URL do repositório | https://github.com/lucaRomariz/agenda-ao-ar-livre |
 | Commit ou tag da entrega | Pendente: registrar após publicação e revisão |
 | Origem institucional | https://github.com/Felippe-Pires/template_projects |
 | Commit do template consultado | ce21fdb96f2bebb6756dab70bc82ea39a1d93bd7 |
@@ -29,7 +29,7 @@
 - [ ] Acesso do professor verificado.
 - [ ] Commit/tag final registrado acima.
 
-## Publicação quando houver acesso
-O material oficial foi clonado e preenchido localmente. O botão "Use this template" não estava disponível na página consultada; confirmar com o professor a aceitação da derivação por clone/cópia, preservando a atribuição ao original. Publicar na conta do grupo, conferir diff, commit e push. O remoto origin atual aponta para o professor e não é destino de publicação do grupo. Não enviar o diretório .git na cópia dos arquivos.
+## Origem e revisão
+O material oficial foi clonado e preenchido localmente, preservando a atribuição ao original. O repositório do grupo está indicado acima. Confirmar com o professor a aceitação da derivação por clone/cópia e conferir a versão final publicada antes da submissão.
 
 A versão inicial gerada com assistência não substitui o histórico individual exigido: Luca e Miguel devem revisar, corrigir e explicar suas contribuições reais com suas próprias contas. Não criar commits artificiais em nome de outra pessoa.

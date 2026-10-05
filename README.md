@@ -77,8 +77,6 @@ Monólito modular Django com templates e API REST de leitura. Serviços de domí
 ## 6. Organização dos diretórios
 ```text
 README.md
-.env.example
-requirements-docs.txt
 docs/
   README.md / README.pdf / entrega-1.pdf
   visao/
@@ -93,8 +91,6 @@ docs/
 images/
   logo.svg
   semaforo.png
-scripts/
-  gerar_documentos.py
 ```
 
 A estrutura existente do template foi preservada, incluindo os caminhos dos quatro PDFs de modelagem e a imagem institucional. As demais pastas cobrem entregáveis adicionais exigidos. Cada diagrama tem .drawio e .svg junto do documento correspondente. src/backend/ e testes serão criados na fase 2.
@@ -102,7 +98,7 @@ A estrutura existente do template foi preservada, incluindo os caminhos dos quat
 ## 7. Participantes
 | Nome | Matrícula | Responsabilidade proposta |
 | --- | --- | --- |
-| Luca Romariz | Não informada | Backend, dados, API, integração e SAST; revisão conjunta. |
+| Luca Romariz | 22504651 | Backend, dados, API, integração e SAST; revisão conjunta. |
 | Miguel Silva | Não informada | Casos de uso, interface, relatório e DAST; revisão conjunta. |
 
 Divisão sujeita à confirmação da dupla; não representa evidência de execução individual. Professor responsável: Felippe Pires Ferreira.
@@ -116,23 +112,10 @@ python3 -m http.server 8000
 
 Acessar http://localhost:8000/docs/prototipos/. O servidor acima serve arquivos estáticos e não é a aplicação Django.
 
-**Regenerar documentação:** requer Python 3.10+; instalar dependências num ambiente isolado e executar:
-
-```bash
-python3 -m venv .venv
-# macOS/Linux:
-source .venv/bin/activate
-# Windows PowerShell: .venv\Scripts\Activate.ps1
-python -m pip install -r requirements-docs.txt
-python scripts/gerar_documentos.py
-```
-
-O gerador atualiza os diagramas e PDFs a partir das fontes textuais e do modelo. Edições visuais em .drawio devem ser exportadas novamente; antes de regenerar, refletir a mudança também no gerador para não perdê-la.
-
 **Aplicação publicada:** ainda não existe; prevista para fase 2. Hospedagem a definir. Instruções reais de Django e migrations serão acrescentadas quando implementadas.
 
 ## 9. Configuração
-As variáveis abaixo são previstas para a fase 2; o protótipo não as utiliza. [.env.example](.env.example) contém somente nomes e valores não secretos.
+As variáveis abaixo são previstas para a fase 2; o protótipo não requer configuração.
 
 | Variável | Uso |
 | --- | --- |
@@ -164,21 +147,22 @@ Este repositório preserva a política de uso de IA do template da disciplina:
 | Amarelo - limitado | Ferramenta auxiliar com declaração de uso. |
 | Verde - permitido | Uso permitido conforme as orientações da atividade. |
 
-**Houve uso de IA:** sim, ChatGPT/Codex. **Finalidade:** sugestões de tema, elaboração inicial da visão, requisitos, regras de negócio, casos de uso, arquitetura, modelagem, contrato da API, planejamento, identidade, protótipos e geração/revisão técnica dos arquivos.
+**Houve uso de IA:** sim, ChatGPT/Codex, para sugestões, elaboração inicial e revisão dos documentos, modelos e protótipos. O tema Agenda ao Ar Livre foi escolhido por Luca Romariz. A validação e a adoção das propostas cabem aos integrantes.
 
-**Participação humana conhecida:** escolha do tema, indicação dos integrantes e solicitação do pacote. **Pendente:** a dupla deve revisar, corrigir, validar as decisões e compreender o material antes da entrega. Não se declara que a modelagem foi feita autonomamente pelos alunos nem que já houve validação humana completa. Confirmar enquadramento de uso com as orientações do professor.
+**Revisão:** Luca solicitou a atualização dos dados acadêmicos e a remoção dos arquivos auxiliares de preparação. A dupla deve validar os requisitos, a modelagem e os demais artefatos antes da entrega, conforme as orientações do professor.
 
 ## 12. Contribuição e fluxo de trabalho
 main guarda a versão para avaliação. Usar branches docs/nome, feat/nome e fix/nome. Cada integrante faz suas alterações com a própria conta e pede revisão ao colega. Exemplos: docs: revisa regras de inscrição; feat: adiciona cadastro de locais.
 
 [Backlog](docs/planejamento/backlog.csv) · [Planejamento](docs/planejamento/planejamento.md) · [Checklist de submissão](docs/planejamento/submissao.md)
 
-A pasta foi preparada a partir do template oficial e será enviada manualmente pelo grupo. Criação do repositório próprio, colaboradores, contribuições e tag ainda estão pendentes. Consulte COMO-SUBIR-NO-GITHUB.md.
+Repositório do grupo: [Agenda ao Ar Livre](https://github.com/lucaRomariz/agenda-ao-ar-livre), preparado a partir do template oficial. Cada integrante deve registrar suas contribuições reais e conferir o acesso dos colaboradores antes da entrega.
 
 ## 13. Histórico de versões
 | Versão | Data | Descrição |
 | --- | --- | --- |
 | 0.1 - proposta | 2026-10-04 | Pacote de documentação e protótipos da fase 1; revisão humana e publicação pendentes. |
+| 0.1 - revisão documental | 2026-10-05 | Matrícula de Luca, declaração de assistência e remoção dos arquivos auxiliares de preparação. |
 
 ## 14. Limitações e próximos passos
 - Backend, persistência, integração real, deploy e segurança ainda não implementados.
